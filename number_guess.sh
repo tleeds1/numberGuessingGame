@@ -18,8 +18,7 @@ then
   # insert username in database
   INSERT_USER_INFO_RESULT=$($PSQL "INSERT INTO ranked(name, games_played) VALUES('$USER', 0)")
 
-  # get user info
-  GAMES_PLAYED=$($PSQL "SELECT games_played FROM ranked WHERE name='$USER'")
+  # get RANKED  GAMES_PLAYED=$($PSQL "SELECT games_played FROM ranked WHERE name='$USER'")
   BEST_GAME=$($PSQL "SELECT best FROM ranked WHERE name='$USER'")
   USERNAME=$($PSQL "SELECT name FROM ranked WHERE name='$USER'")
 
@@ -29,8 +28,7 @@ then
 # if username is found
 else
 
-  # get user info
-  GAMES_PLAYED=$($PSQL "SELECT games_played FROM ranked WHERE name='$USER'")
+  # get RANKED  GAMES_PLAYED=$($PSQL "SELECT games_played FROM ranked WHERE name='$USER'")
   BEST_GAME=$($PSQL "SELECT best FROM ranked WHERE name='$USER'")
   USERNAME=$($PSQL "SELECT name FROM ranked WHERE name='$USER'")
 
@@ -69,8 +67,7 @@ GUESS () {
 echo "Guess the secret number between 1 and 1000:"
 GUESS
 
-# UPDATE USER INFO
-
+# UPDATE RANKED
 # update games_played
 UPDATE_GAMES_PLAYED=$($PSQL "UPDATE ranked SET games_played=ranked.games_played+1 WHERE name='$USERNAME'")
 
